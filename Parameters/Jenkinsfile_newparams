@@ -1,0 +1,30 @@
+pipeline {
+    agent none
+    
+    parameters {
+        string(name: 'NAME', defaultValue: '', description: 'Please run')
+        booleanParam(name: 'SKIP_TEST', description: 'want to keep')
+        choice(name: 'BRANCH', choices: ['master','staging','prod'], description: 'choice made')
+    }
+    stages {
+        stage ('STAGE1') {
+            agent { label 'slave1'}
+            steps {
+
+                echo "Name: ${params.NAME}"
+                echo "SKIP_TEST: ${params.SKIP_TEST}"
+                echo "BRANCH TO DEPLOY: ${params.BRANCH}"
+            }
+        
+        }
+        stage ('STAGE2') {
+            steps {
+                echo "Building java code"
+                sh '''
+                    #!/bin/bash
+                    sleep 5
+                    '''
+            }
+        }
+}
+}
