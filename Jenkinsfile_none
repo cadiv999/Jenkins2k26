@@ -15,6 +15,7 @@ pipeline {
         
         }
         stage ('STAGE2') {
+            agent { label 'master'}
             steps {
                 echo "Building java code"
                 sh '''
