@@ -2,9 +2,9 @@ pipeline {
     agent none
     
     parameters {
-        string(name: 'NAME', defaultValue: '', description: 'Please run')
-        booleanParam(name: 'SKIP_TEST', description: 'want to keep')
-        choice(name: 'BRANCH', choices: ['master','staging','prod'], description: 'choice made')
+        string(name: 'NAME', defaultValue: '', description: 'Please provide the name')
+        booleanParam(name: 'TOGGLE', defaultValue: true, description: 'Toggle this value')
+        choice(name: 'BRANCH', choices: ['master','staging','prod'], description: 'select from dropdown')
     }
     stages {
         stage ('STAGE1') {
@@ -12,7 +12,7 @@ pipeline {
             steps {
 
                 echo "Name: ${params.NAME}"
-                echo "SKIP_TEST: ${params.SKIP_TEST}"
+                echo "TOGGLE: ${params.TOGGLE}"
                 echo "BRANCH TO DEPLOY: ${params.BRANCH}"
             }
         
