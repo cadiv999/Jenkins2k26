@@ -17,7 +17,7 @@ pipeline {
                             extensions: [], 
                             userRemoteConfigs: [[
                                 credentialsId: 'cadiv999', 
-                                url: 'https://github.com/cadiv999/Jenkinsfile.git'
+                                url: 'https://github.com/cadiv999/Jenkins2k26.git'
                             ]]
                         ])
                
